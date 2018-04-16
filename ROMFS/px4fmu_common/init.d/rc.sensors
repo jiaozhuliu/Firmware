@@ -312,6 +312,24 @@ then
 	ist8310 -C -b 5 start
 fi
 
+if ver hwcmp AV-X
+then
+	#adis16477 start
+
+	#adis16497 start
+
+	#lps22hb start
+
+	#lsm303a start
+
+	#ms4525 start
+
+	# Possible external compasses
+	#hmc5883 -X start
+	#lis3mdl -X start
+	#ist8310 -C start
+fi
+
 if ver hwcmp AEROCORE2
 then
 	l3gd20 -R 12 start
