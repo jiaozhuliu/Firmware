@@ -124,11 +124,6 @@ cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 set(PX4_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 set(PX4_BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}")
 
-execute_process(
-	COMMAND Tools/check_submodules.sh
-	WORKING_DIRECTORY ${PX4_SOURCE_DIR}
-	)
-
 # Use clang
 #SET (CMAKE_C_COMPILER /usr/bin/clang-3.6)
 #SET (CMAKE_CXX_COMPILER /usr/bin/clang++-3.6)
@@ -285,12 +280,6 @@ px4_add_git_submodule(TARGET git_jmavsim PATH "Tools/jMAVSim")
 px4_add_git_submodule(TARGET git_gazebo PATH "Tools/sitl_gazebo")
 px4_add_git_submodule(TARGET git_matrix PATH "src/lib/matrix")
 px4_add_git_submodule(TARGET git_cmake_hexagon PATH "cmake/cmake_hexagon")
-
-add_custom_target(submodule_clean
-	WORKING_DIRECTORY ${PX4_SOURCE_DIR}
-	COMMAND git submodule deinit -f .
-	COMMAND rm -rf .git/modules/*
-	)
 
 #=============================================================================
 # misc targets

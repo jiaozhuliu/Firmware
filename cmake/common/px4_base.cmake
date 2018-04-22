@@ -139,7 +139,6 @@ function(px4_add_git_submodule)
 	add_custom_command(OUTPUT ${PX4_BINARY_DIR}/git_init_${NAME}.stamp
 		WORKING_DIRECTORY ${PX4_SOURCE_DIR}
 		COMMAND touch ${PX4_BINARY_DIR}/git_init_${NAME}.stamp
-		DEPENDS ${PX4_SOURCE_DIR}/.gitmodules
 		)
 	add_custom_target(${TARGET}
 		WORKING_DIRECTORY ${PX4_SOURCE_DIR}
